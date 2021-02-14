@@ -7,10 +7,5 @@ namespace ReCapProject.Business.Abstract
 {
     public interface IColorService
     {
-        List<Color> GetById(int Id);
-        List<Color> GetAll();
-        void Add(Color entity);
-        Color Update(Color entity);
-        void Delete(Color entity);
     }
 }

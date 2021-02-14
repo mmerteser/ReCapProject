@@ -7,10 +7,5 @@ namespace ReCapProject.Business.Abstract
 {
     public interface IBrandService
     {
-        List<Brand> GetById(int Id);
-        List<Brand> GetAll();
-        void Add(Brand entity);
-        Brand Update(Brand entity);
-        void Delete(Brand entity);
     }
 }

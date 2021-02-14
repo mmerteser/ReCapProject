@@ -1,4 +1,5 @@
 ﻿using ReCapProject.Business.Concrete;
+using ReCapProject.DataAccess.Concrete.EntityFramework;
 using ReCapProject.DataAccess.Concrete.InMemory;
 using ReCapProject.Entities.Concrete;
 using System;
@@ -9,30 +10,27 @@ namespace ReCapProject.ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new IMCarDal());
-
-            foreach (var item in carManager.GetAll())
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            foreach (var item in rentalManager.GetAllRentalDetails().Data)
             {
-                Console.WriteLine($"{item.Description} - {item.BrandId} - {item.ColorId} - {item.DailyPrice}");
+                Console.WriteLine(item.FirstName + " " + item.LastName + " " + item.RentDate);
             }
 
-            carManager.Add(new Car { CarId = 7, ColorId = 2, BrandId = 5, Description = "Golf", DailyPrice = 600, ModelYear = 2021 });
-            foreach (var item in carManager.GetById(7))
+            rentalManager.Add(new Rental
             {
-                Console.WriteLine($"{item.Description} - {item.BrandId} - {item.ColorId} - {item.DailyPrice}");
-            }
+                CustomerId = 1,
+                CarId = 1,
+                RentDate = DateTime.Now
+            });
 
-            carManager.Update(new Car { CarId = 7, ColorId = 2, BrandId = 5, Description = "Polo", DailyPrice = 600, ModelYear = 2021 });
-            foreach (var item in carManager.GetById(7))
+            var message = rentalManager.Add(new Rental
             {
-                Console.WriteLine($"{item.Description} - {item.BrandId} - {item.ColorId} - {item.DailyPrice}");
-            }
+                CustomerId = 1,
+                CarId = 1,
+                RentDate = DateTime.Now
+            }).Message;
 
-            carManager.Delete(new Car { CarId = 7, ColorId = 2, BrandId = 5, Description = "Polo", DailyPrice = 600, ModelYear = 2021 });
-            foreach (var item in carManager.GetById(7))
-            {
-                Console.WriteLine($"{item.Description} - {item.BrandId} - {item.ColorId} - {item.DailyPrice}");
-            }
+            Console.WriteLine(message);
         }
     }
 }

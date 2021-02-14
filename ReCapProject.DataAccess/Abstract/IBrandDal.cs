@@ -1,16 +1,13 @@
-﻿using ReCapProject.Entities;
+﻿using ReCapProject.Core.DataAccess;
+using ReCapProject.Entities;
+using ReCapProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ReCapProject.DataAccess.Abstract
 {
-    public interface IBrandDal
+    public interface IBrandDal: IEntityRepository<Brand>
     {
-        List<Brand> GetById(int Id);
-        List<Brand> GetAll();
-        void Add(Brand entity);
-        Brand Update(Brand entity);
-        void Delete(Brand entity);
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ReCapProject.Business.Concrete
 {
-    public class ColorManager:IColorService
+    public class ColorManager : IColorService
     {
         IColorDal _colorDal;
 
@@ -16,29 +16,5 @@ namespace ReCapProject.Business.Concrete
             _colorDal = colorDal;
         }
 
-        public void Add(Color entity)
-        {
-            _colorDal.Add(entity);
-        }
-
-        public void Delete(Color entity)
-        {
-            _colorDal.Delete(entity);
-        }
-
-        public List<Color> GetAll()
-        {
-            return _colorDal.GetAll();
-        }
-
-        public List<Color> GetById(int Id)
-        {
-            return _colorDal.GetById(Id);
-        }
-
-        public Color Update(Color entity)
-        {
-            return _colorDal.Update(entity);
-        }
     }
 }

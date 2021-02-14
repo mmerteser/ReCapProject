@@ -2,6 +2,7 @@
 using ReCapProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace ReCapProject.DataAccess.Concrete.InMemory
@@ -21,6 +22,7 @@ namespace ReCapProject.DataAccess.Concrete.InMemory
                 new Color{ColorId=6,ColorName="Metalik Gri"},
             };
         }
+
         public void Add(Color entity)
         {
             throw new NotImplementedException();
@@ -31,17 +33,17 @@ namespace ReCapProject.DataAccess.Concrete.InMemory
             throw new NotImplementedException();
         }
 
-        public List<Color> GetAll()
+        public Color Get(Expression<Func<Color, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public List<Color> GetById(int Id)
+        public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public Color Update(Color entity)
+        public void Update(Color entity)
         {
             throw new NotImplementedException();
         }

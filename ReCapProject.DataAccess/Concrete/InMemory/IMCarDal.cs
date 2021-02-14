@@ -1,8 +1,10 @@
 ﻿using ReCapProject.DataAccess.Abstract;
 using ReCapProject.Entities.Concrete;
+using ReCapProject.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace ReCapProject.DataAccess.Concrete.InMemory
@@ -22,36 +24,35 @@ namespace ReCapProject.DataAccess.Concrete.InMemory
                 new Car{CarId=6,BrandId=6,ColorId=6,Description="Corolla",DailyPrice=500,ModelYear=2021},
             };
         }
+
         public void Add(Car entity)
         {
-            _cars.Add(entity);   
+            throw new NotImplementedException();
         }
 
         public void Delete(Car entity)
         {
-            var result = _cars.FirstOrDefault(c => c.CarId == entity.CarId);
-            _cars.Remove(result);
+            throw new NotImplementedException();
         }
 
-        public List<Car> GetAll()
+        public Car Get(Expression<Func<Car, bool>> filter)
         {
-            return _cars;
+            throw new NotImplementedException();
         }
 
-        public List<Car> GetById(int carId)
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            return _cars.Where(c => c.CarId == carId).ToList();
+            throw new NotImplementedException();
         }
 
-        public Car Update(Car entity)
+        public List<CarDetailsDto> GetCarDetails()
         {
-            var result = _cars.FirstOrDefault(c => c.CarId == entity.CarId);
-            result.BrandId = entity.BrandId;
-            result.ColorId = entity.ColorId;
-            result.DailyPrice = entity.DailyPrice;
-            result.Description = entity.Description;
+            throw new NotImplementedException();
+        }
 
-            return result;
+        public void Update(Car entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

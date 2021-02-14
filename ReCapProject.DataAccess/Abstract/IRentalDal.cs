@@ -3,12 +3,13 @@ using ReCapProject.Entities.Concrete;
 using ReCapProject.Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace ReCapProject.DataAccess.Abstract
 {
-    public interface ICarDal:IEntityRepository<Car>
+    public interface IRentalDal:IEntityRepository<Rental>
     {
-        List<CarDetailsDto> GetCarDetails();
+        public List<RentalDetailsDto> GetRentalDetails(Expression<Func<Rental,bool>> filter = null);
     }
 }

@@ -1,7 +1,9 @@
 ﻿using ReCapProject.DataAccess.Abstract;
 using ReCapProject.Entities;
+using ReCapProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace ReCapProject.DataAccess.Concrete.InMemory
@@ -14,12 +16,12 @@ namespace ReCapProject.DataAccess.Concrete.InMemory
         {
             _brands = new List<Brand>
             {
-                new Brand{BrandId=1,BrandDesc="Opel"},
-                new Brand{BrandId=2,BrandDesc="Renault"},
-                new Brand{BrandId=3,BrandDesc="Peugeot"},
-                new Brand{BrandId=4,BrandDesc="Fiat"},
-                new Brand{BrandId=5,BrandDesc="Volkswagen"},
-                new Brand{BrandId=6,BrandDesc="Toyota"},
+            //    new Brand{BrandId=1,BrandDesc="Opel"},
+            //    new Brand{BrandId=2,BrandDesc="Renault"},
+            //    new Brand{BrandId=3,BrandDesc="Peugeot"},
+            //    new Brand{BrandId=4,BrandDesc="Fiat"},
+            //    new Brand{BrandId=5,BrandDesc="Volkswagen"},
+            //    new Brand{BrandId=6,BrandDesc="Toyota"},
             };
         }
 
@@ -33,17 +35,17 @@ namespace ReCapProject.DataAccess.Concrete.InMemory
             throw new NotImplementedException();
         }
 
-        public List<Brand> GetAll()
+        public Brand Get(Expression<Func<Brand, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public List<Brand> GetById(int Id)
+        public List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public Brand Update(Brand entity)
+        public void Update(Brand entity)
         {
             throw new NotImplementedException();
         }
