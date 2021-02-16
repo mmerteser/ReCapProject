@@ -20,7 +20,7 @@ namespace ReCapProject.Business.Concrete
 
         public IResult Add(Rental rental)
         {
-            var isAvailableCar = _rentalDal.GetRentalDetails(r => r.CarId == rental.CarId); 
+            var isAvailableCar = _rentalDal.GetRentalDetails(r => r.CarId == rental.CarId && r.ReturnDate == null); 
             if (isAvailableCar.Count > 0)
             {
                 return new ErrorResult(Messages.CarNotAvailable);
