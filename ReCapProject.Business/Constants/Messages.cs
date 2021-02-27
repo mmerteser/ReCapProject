@@ -8,5 +8,6 @@
         public static string CarListed = "Araç listelendi!";
         public static string UserAdded = "Kullanıcı eklendi!";
         public static string CarNotAvailable = "Araç kullanılabilir durumda değil!";
+        public static string PhotoCountLimit = "Bir araç için maksimum 5 fotoğraf eklenebilir!";
     }
 }
